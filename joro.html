@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,21 +9,21 @@
 <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
-	<div id="result"></div>
-	<button class="del-bg" id="delete">Del</button>
+	<div class="Calculator">
+	<p id="result"></p>
 	<form id="calc" action="" method="get">
-	Операнд 1: <input type="text" id="op1" name="op1" class="operand-style"><br>
-	Операнд 2: <input type="text" id="op2" name="op2" class="operand-style"><br>
+	Операнд 1: <input type="text" id="op1" name="op1" class="1"><br>
+	Операнд 2: <input type="text" id="op2" name="op2" class="2"><br>
 	Операция
-	<select id="op" name="op">
+	<select class="select" id="op" name="op">
 	<option value="">--- Изберете ---</option>
 	<option value="add">Събиране</option>
 	<option value="sub">Изваждане</option>
 	<option value="mul">Умножение</option>
 	<option value="div">Деление</option>
 	</select><br>
-	<input id="eqn-bg" type="submit" value="Пресметни">
+	<input id="eqn-bg" type="submit" value="Пресметни" onclick="submitHandler()">
+	</div>
 	
 <script src="java.js"></script>
 </body>
-<html>

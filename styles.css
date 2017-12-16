@@ -1,3 +1,4 @@
+
 #result {
     display:block;
     font-family: sans-serif;
@@ -67,19 +68,6 @@ body {
     position: relative;
     top:10px;
 }
-.del-bg {
-    background:#24b4de;
-    color:#fff;
-    font-size:26px;
-    cursor: pointer;
-    outline:none;
-    border-bottom:3px solid #399cb9;
+adow: inset 4px 4px 4px #399cb9;
 }
-.del-bg:active {
-    background:#24b4de;
-    color:#fff;
-    font-size:26px;
-    cursor: pointer;
-    outline:none;
-    box-shadow: inset 4px 4px 4px #399cb9;
-}
+

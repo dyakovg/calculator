@@ -1,3 +1,4 @@
+
 function formatNumber(e) {
 	var keyCode=e.which;
 	console.log(keyCode);
@@ -37,7 +38,7 @@ function submitHandler() {
 		return false;
 	}
 	
-	//var result='';
+	var result;
 	switch(op.value){
 		case 'add':
 			result = op1.value + op2.value;
@@ -53,16 +54,57 @@ function submitHandler() {
 			break;
 			
 	}
+	//document.getElementById("result").innerHTML=E('result').value;
+} 
+
+
+//<![CDATA[
+var pre = onload; // previous onload? - window can only have one onload property using this style of Event delegation
+onload = function(){
+
+if(pre)pre();
+var doc = document, bod = doc.body;
+function E(e){
+  return doc.getElementById(e);
+}
+var result = E('result'); // example of Element stored in variable
+E('eqn-bg').onclick = function(){
+  result.innerHTML = E('op1').value + E('op2').value + E('result').value ;
+  
 }
 
-function Total()
+}
+//]]> 
+
+
+
+/*var Calculator = function(){
+  var _$self = $(this);
+  var _$e = $(
+      "<div class='Calculator'>" +
+      "<input type='text' class='1'>" +
+      "<select class='select'>" +
+      Object.keys(OPERATIONS).map(function(key) {
+        return '<option>' + key + '</option>';
+      }).join('') +
+      "</select>" +
+      "<input type='text' class='2'>" +
+      "<div class='result'></div>" +
+      "</div>"
+  );
+  var _$txt_1 = _$e.find('.1');
+  var _$txt_2 = _$e.find('.2');
+  var _$select = _$e.find('.select');
+  var _$ctnr_result = _$e.find('.result'); */
+  
+  
+/*function Total()
 {
 	var sumirane = submitHandler();
     document.getElementById('result').innerHTML = sumirane;
  
 
-}
+} */
 
 var form = document.getElementById('calc');
 form.addEventListener('submit', submitHandler);
-form.addEventListener('keydown', formatNumber);

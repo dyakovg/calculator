@@ -13,17 +13,20 @@ function submitHandler() {
 	console.log('Entering the arena...');
 	event.preventDefault();
 	
-	var op1 = document.getElementById('op1');
-	var op2 = document.getElementById('op2');
-	var op = document.getElementById('op');
+	var op1 = $('op1');
+	var op2 = $('op2');
+	var op = $('op');
 	var hasError=false;
 	
-	if (NaN !== parseInt(op1.value)) {
+	var one = parseInt(op1.value);
+	var two = parseInt(op2.value);
+
+	if (NaN === one) {
 		op1.style.backgroundColor='red';
 		hasError=true;
 	}
 	
-	if (NaN !== parseInt(op2.value)) {
+	if (NaN === two) {
 		op2.style.backgroundColor='red';
 		hasError=true;
 	}
@@ -38,73 +41,36 @@ function submitHandler() {
 		return false;
 	}
 	
-	var result;
+	
+
+	var result = 0;
 	switch(op.value){
 		case 'add':
-			result = op1.value + op2.value;
+			result = one + two;
 			break;
 		case 'sub':
-			result = op1.value - op2.value;
+			result = one - two;
 			break;
 		case 'mul':
-			result = op1.value * op2.value;
+			result = one * two;
 			break;
 		case 'div':
-			result = op1.value / op2.value;
+			result = one / two;
 			break;
 			
 	}
-	//document.getElementById("result").innerHTML=E('result').value;
+	$('result').innerHTML = result;
+	$('op1').value = '';
+	$('op2').value = '';
+	$('op').selectedIndex = 0;
 } 
 
 
 //<![CDATA[
-var pre = onload; // previous onload? - window can only have one onload property using this style of Event delegation
-onload = function(){
-
-if(pre)pre();
-var doc = document, bod = doc.body;
-function E(e){
-  return doc.getElementById(e);
-}
-var result = E('result'); // example of Element stored in variable
-E('eqn-bg').onclick = function(){
-  result.innerHTML = E('op1').value + E('op2').value + E('result').value ;
-  
-}
-
+function $(e){
+  return document.getElementById(e);
 }
 //]]> 
-
-
-
-/*var Calculator = function(){
-  var _$self = $(this);
-  var _$e = $(
-      "<div class='Calculator'>" +
-      "<input type='text' class='1'>" +
-      "<select class='select'>" +
-      Object.keys(OPERATIONS).map(function(key) {
-        return '<option>' + key + '</option>';
-      }).join('') +
-      "</select>" +
-      "<input type='text' class='2'>" +
-      "<div class='result'></div>" +
-      "</div>"
-  );
-  var _$txt_1 = _$e.find('.1');
-  var _$txt_2 = _$e.find('.2');
-  var _$select = _$e.find('.select');
-  var _$ctnr_result = _$e.find('.result'); */
-  
-  
-/*function Total()
-{
-	var sumirane = submitHandler();
-    document.getElementById('result').innerHTML = sumirane;
- 
-
-} */
 
 var form = document.getElementById('calc');
 form.addEventListener('submit', submitHandler);
